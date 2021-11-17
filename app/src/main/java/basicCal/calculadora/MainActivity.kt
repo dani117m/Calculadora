@@ -21,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         resta()
         multiplicacion()
         dividir()
-
+        iva()
+        edad()
+        numprimo()
 
     }
     fun suma(){
@@ -94,7 +96,74 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun iva(){
+        var ingresoC = findViewById<EditText>(R.id.numVal)
+        //resulltadoValidacion
+        var validacion = findViewById<TextView>(R.id.resulltadoValidacion)
+        var botonV =findViewById<Button>(R.id.boton_Iva)
 
+        botonV.setOnClickListener(){
+            var n1: Int = (ingresoC.text.toString()).toInt()
+            var total: String = (n1+ (n1 * 0.12)).toString()
+
+            validacion.setText( total )
+
+        }
+
+
+
+    }
+
+    fun edad(){
+
+        var ingresoC = findViewById<EditText>(R.id.numVal)
+        //resulltadoValidacion
+        var validacion = findViewById<TextView>(R.id.resulltadoValidacion)
+        var botonY =findViewById<Button>(R.id.boton_mayormenor)
+
+        botonY.setOnClickListener(){
+            var n1: Int = (ingresoC.text.toString()).toInt()
+
+            if (n1 >= 18 ){
+                validacion.setText("Usted es mayor de edad")
+
+            }else{
+                validacion.setText("Usted es menor de edad")
+            }
+
+        }
+
+    }
+
+
+    fun numprimo(){
+
+        var ingresoC = findViewById<EditText>(R.id.numVal)
+        //resulltadoValidacion
+        var validacion = findViewById<TextView>(R.id.resulltadoValidacion)
+        var botonM =findViewById<Button>(R.id.boton_validar)
+
+        botonM.setOnClickListener(){
+            var n1: Int = (ingresoC.text.toString()).toInt()
+            var total: Int = 0
+
+            for (i in 2..n1 / 2){
+                if (n1 % i == 0){
+                    total+=i
+                }
+
+            }
+            if (total == 0){
+                validacion.setText("Primo")
+
+            }else{
+                validacion.setText("No primo")
+            }
+
+        }
+
+
+    }
 
 
 
